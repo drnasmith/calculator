@@ -4,4 +4,4 @@ Simple application that takes a string representing an algorithmic expression an
 Optionally it can take a filename with a list of expressions and returns the list of results.
 
 ## Command line
-python app.py [ -s <string expression> ] [ -f <filename> ]
+python app.py [ -s "string expression" ] [ -f filename ]
