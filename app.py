@@ -7,12 +7,14 @@ Takes two command line arguments:
 import argparse
 from calculator import Calculator
 
+
 def process_expression(expression):
     """
     Simple case - take a single text string representing an algorithmic expression and return the result
     """
     c = Calculator()
     return c.calculate(expression)
+
 
 def process_file(filename):
     """
@@ -26,12 +28,15 @@ def process_file(filename):
             results.append(c.calculate(line))
     return results
 
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Calculator command line arguments')
-    parser.add_argument('-s', action='store', dest='expression',
-                        help='string expression to calculate')
-    parser.add_argument('-f', action='store', dest='filename',
-                        help='filename with list of expressions')
+    parser = argparse.ArgumentParser(description="Calculator command line arguments")
+    parser.add_argument(
+        "-s", action="store", dest="expression", help="string expression to calculate"
+    )
+    parser.add_argument(
+        "-f", action="store", dest="filename", help="filename with list of expressions"
+    )
 
     args = parser.parse_args()
 
