@@ -5,7 +5,6 @@ Pass in a text string with an algorithmic expression to determine the result
 """
 import re
 
-
 class Calculator:
     # valid_expression is a class variable because this is the same for all instances
     # This regex pattern determines if the expression represents a valid sum
@@ -25,9 +24,13 @@ class Calculator:
 
         processed_expression = self.__remove_whitespace(expression)
 
-        if self.__is_valid_expression(processed_expression):
+        if self.__is_valid_expression(processed_expression) is None:
+            return None
+
+        try:
             result = eval(processed_expression)
-        else:
+        except Exception:
+            # Handles case where expression is not correctly formed
             result = None
 
         return result
@@ -52,6 +55,7 @@ if __name__ == "__main__":
     assert c.calculate("1+1") == 2
     assert c.calculate("(3+4)*6") == 42
     assert c.calculate("(1*4)+(5*2)") == 14
+    assert c.calculate("(1*4)+(5*2") == None
     assert c.calculate("a+b") == None
     assert c.calculate("") == None
 
