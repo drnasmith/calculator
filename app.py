@@ -45,4 +45,4 @@ if __name__ == "__main__":
     elif args.filename:
         print(process_file(args.filename))
     else:
-        args.print_help()
+        parser.print_help()
